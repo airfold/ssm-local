@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node:alpine AS builder
 WORKDIR /app
 
 # dependencies
@@ -17,7 +17,7 @@ COPY --from=builder /app/lib .
 
 # bindings
 EXPOSE 9230
-ENV HOST 0.0.0.0
-ENV PORT 9230
+ENV HOST=0.0.0.0
+ENV PORT=9230
 VOLUME /app/data
 ENTRYPOINT ["node", "/app/start.js"]
